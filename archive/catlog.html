@@ -9,7 +9,7 @@ var arr = 1;
 function Write2Text()
 {
 var fso = new ActiveXObject("Scripting.FileSystemObject");
-var f = fso.CreateTextFile("data.json", true);
+var f = fso.CreateTextFile("data.txt", true);
 f.write(arr);
 f.Close();
 }
@@ -20,11 +20,11 @@ f.Close();
 function GetHeader(src) {
 var ForReading=1;
 var fso=new ActiveXObject("Scripting.FileSystemObject");
-var f=fso.OpenTextFile(src,ForReading);
+var f=fso.OpenTextFile(data.txt,ForReading);
 return(f.ReadAll());
 }
 function ReadText(){
-var arr=GetHeader("a.txt").split("\r\n");
+var arr=GetHeader("data.txt").split("\r\n");
 for(var i=0;i<arr.length;i++){
 alert("第"+(i+1)+"行数据为du:"+arr[i]);
 }
