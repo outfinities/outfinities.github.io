@@ -1,33 +1,37 @@
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>ajax请求json数据</title>  
-</head>  
-<body>  
-<div id="test"></div>  
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>  
-    $(function(){  
-        $.ajax({  
-            //请求方式  
-            type:"GET",  
-            //文件位置  
-            url:"data.json",
-            //返回数据格式为json,也可以是其他格式如  
-            dataType: "json",  
-            //请求成功后要执行的函数，拼接html  
-            success: function(data){  
-                var str="<ul>";  
-                $.each(data,function(i,n){  
-                    str+="<li>"+"ID："+n.id+"</li>";
-                    str+="<li>"+"标题："+n.title+"</li>";
-                    str+="<li>"+"地址："+n.url+"</li>";
-                });  
-                str+="</ul>";  
-                $("div").append(str);  
-            }  
-        });  
-    });  
-</script>  
-</body>  
-</html>
+<html>
+<head>
+<title>JS操作文bai本文件</title>
+</head>
+<body>
+
+<script>
+var arr = 1;
+function Write2Text()
+{
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var f = fso.CreateTextFile("data.json", true);
+f.write(arr);
+f.Close();
+}
+</script>
+<input type=button value="Write" onclick="Write2Text()">
+
+<script>
+function GetHeader(src) {
+var ForReading=1;
+var fso=new ActiveXObject("Scripting.FileSystemObject");
+var f=fso.OpenTextFile(src,ForReading);
+return(f.ReadAll());
+}
+function ReadText(){
+var arr=GetHeader("a.txt").split("\r\n");
+for(var i=0;i<arr.length;i++){
+alert("第"+(i+1)+"行数据为du:"+arr[i]);
+}
+}
+</script>
+
+<input type=button value="Read" onclick="ReadText()">
+
+</body>
+</html> 
