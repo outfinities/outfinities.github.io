@@ -12,19 +12,19 @@
     <div id="main">
         <table border=1>
             <tr>
-                <td>ID</td>
-                <td>资源名称</td>
-                <td>LOGO</td>
-                <td>更新时间</td>
-                <td>下载地址</td>
-                <td>阅读量</td>
+                <td>股票代码</td>
+                <td>股票名称</td>
+                <td>所属领域</td>
+                <td>概念</td>
+                <td>当日涨幅</td>
+                <td>获取时间及方案</td>
             </tr>
             <tr v-for="r in rows">
+                <td>{{r.f12}}</td>
+                <td>{{r.f14}}</td>
+                <td>{{r.f100}}</td>
+                <td>{{r.f103}}</td>
                 <td>{{r.f3}}</td>
-                <td>{{r.resname}}</td>
-                <td><img v-bind:src="r.resimg"/></td>
-                <td>{{r.resint}}</td>
-                <td><a v-bind:href="r.resurl">点击下载</a></td>
                 <td>{{r.pageview}}</td>
             </tr>
         </table>
