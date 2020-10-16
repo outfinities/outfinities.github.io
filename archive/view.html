@@ -1,0 +1,46 @@
+<html lang="zh-CN">
+ 
+<head>
+    <title>VUE解析JSON数据</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vue.min.js"></script>
+    <script src="jquery-1.8.2.min.js"></script>
+</head>
+ 
+<body>
+    <div id="main">
+        <table border=1>
+            <tr>
+                <td>ID</td>
+                <td>资源名称</td>
+                <td>LOGO</td>
+                <td>更新时间</td>
+                <td>下载地址</td>
+                <td>阅读量</td>
+            </tr>
+            <tr v-for="r in rows">
+                <td>{{r.f3}}</td>
+                <td>{{r.resname}}</td>
+                <td><img v-bind:src="r.resimg"/></td>
+                <td>{{r.resint}}</td>
+                <td><a v-bind:href="r.resurl">点击下载</a></td>
+                <td>{{r.pageview}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $.getJSON("data.json", function (result, status) {
+            var v = new Vue({
+                el: '#main',
+                data: {
+                    rows: result
+                }
+            })
+        });
+    });
+</script>
+ 
+</html>
