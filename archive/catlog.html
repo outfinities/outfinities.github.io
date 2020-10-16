@@ -1,48 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+ 
 <head>
+    <title>VUE解析JSON数据</title>
     <meta charset="UTF-8">
-    <title>ajax</title>
-    <style>
-    *{margin:0;padding:0px;font-size: 12px;}
-    a{text-decoration: none;}
-    ul{list-style: none;}
-    #box{width:500px;margin:20px auto;}
-    .btn{display:block;width:50px;height:50px;margin:20px auto;line-height: 50px;text-align: center;border:1px #000 solid;color:#000;transition:.3s linear;}
-    .btn:hover{background: #000;color:#fff;font-weight: bold;}
-    #con{margin-top:20px;}
-    #con li{line-height: 30px;text-align: center;}
-    </style>
-    <script src="jquery-1.8.3.min.js"></script>
-    <script>
-        $(function(){
-            $('.btn').on('click', function(){
-                $.ajax({
-                    type: "GET", //请求的方式，也有POST请求
-                    url: "data.json", //请求地址，后台提供的,这里我在本地自己建立了个json的文件做例子
-                    data: {name:name},//data是传给后台的字段，后台需要哪些就传入哪些
-                    dataType: "json", //json格式，后台返回的数据为json格式的。
-                    success: function(result){
-                        var dataObj = result, //返回的result为json格式的数据
-                        con = "";
-                        $.each(dataObj, function(index, item){
-                            con += "<li>姓名："+item.name+"</li>";
-                            con += "<li>性别："+item.sex+"</li>";
-                            con += "<li>现居地："+item.address+"</li>";
-                            con += "<li>岗位："+item.job+"</li>";
-                        });
-                        console.log(con);    //可以在控制台打印一下看看，这是拼起来的标签和数据
-                        $("#con").html(con); //把内容入到这个div中即完成
-                    }
-                })
-            })
-        })
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
+ 
 <body>
-    <div id="box">
-        <a class="btn" href="javascript:;">点击</a>
-        <ul id="con"></ul>
+    <div id="main">
+        <table border=1>
+            <tr>
+                <td>ID</td>
+                <td>资源名称</td>
+                <td>LOGO</td>
+                <td>更新时间</td>
+                <td>下载地址</td>
+                <td>阅读量</td>
+            </tr>
+            <tr v-for="r in rows">
+                <td>{{r.id}}</td>
+                <td>{{r.resname}}</td>
+                <td><img v-bind:src="r.resimg"/></td>
+                <td>{{r.resint}}</td>
+                <td><a v-bind:href="r.resurl">点击下载</a></td>
+                <td>{{r.pageview}}</td>
+            </tr>
+        </table>
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $.getJSON("data.json", function (result, status) {
+            var v = new Vue({
+                el: '#main',
+                data: {
+                    rows: result
+                }
+            })
+        });
+    });
+</script>
+ 
 </html>
