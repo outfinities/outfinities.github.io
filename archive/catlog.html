@@ -1,46 +1,33 @@
-<html lang="zh-CN">
- 
-<head>
-    <title>VUE解析JSON数据</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-</head>
- 
-<body>
-    <div id="main">
-        <table border=1>
-            <tr>
-                <td>股票代码</td>
-                <td>股票名称</td>
-                <td>所属领域</td>
-                <td>概念</td>
-                <td>当日涨幅</td>
-                <td>阅读量</td>
-            </tr>
-            <tr v-for="r in rows">
-                <td>{{r.f12}}</td>
-                <td>{{r.f14}}</td>
-                <td>{{r.f100}}</td>
-                <td>{{r.f103}}</td>
-                <td>{{r.f3}}</td>
-                <td>{{r.pageview}}</td>
-            </tr>
-        </table>
-    </div>
-</body>
-<script>
-    $(document).ready(function () {
-        $.getJSON("/data.json", function (result, status) {
-            var v = new Vue({
-                el: '#main',
-                data: {
-                    rows: result
-                }
-            })
-        });
-    });
-</script>
- 
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>ajax请求json数据</title>  
+</head>  
+<body>  
+<div id="test"></div>  
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>  
+    $(function(){  
+        $.ajax({  
+            //请求方式  
+            type:"GET",  
+            //文件位置  
+            url:"data.json",
+            //返回数据格式为json,也可以是其他格式如  
+            dataType: "json",  
+            //请求成功后要执行的函数，拼接html  
+            success: function(data){  
+                var str="<ul>";  
+                $.each(data,function(i,n){  
+                    str+="<li>"+"ID："+n.id+"</li>";
+                    str+="<li>"+"标题："+n.title+"</li>";
+                    str+="<li>"+"地址："+n.url+"</li>";
+                });  
+                str+="</ul>";  
+                $("div").append(str);  
+            }  
+        });  
+    });  
+</script>  
+</body>  
 </html>
