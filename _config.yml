@@ -99,16 +99,16 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Globien Wiki Dictionary",
-        href: "https://github.com/globien/globien.github.io/wiki"
+        title: "树莓派实验室",
+        href: "https://shumeipai.nxez.com/"
     },{
-        title: "Globien Community",
-        href: "https://globien.fandom.com/wiki/Globien_Wiki"
+        title: "菜鸟笔记",
+        href: "https://www.runoob.com/"
     },{
-        title: "知乎：人造国际语",
-        href: "https://zhuanlan.zhihu.com/Artificial-International-Language"
+        title: "Python在线手册",
+        href: "https://docs.pythontab.com/"
     },{
-        title: "知乎：Henri_Jambo",
-        href: "https://www.zhihu.com/people/henry-jiang-78" 
+        title: "Github下载加速",
+        href: "https://d.serctl.com/" 
     }
 ]
