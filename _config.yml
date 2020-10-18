@@ -1,9 +1,9 @@
 # Site settings
-title: GET THE REAL DATA
-SEOTitle: GTRD - Make Stock Easier
+title: POS
+SEOTitle: POS
 header-img: img/post-bg-desk.jpg
 email: xxxx@xxxxx.com
-description: "Easy to learn, no more hard work to recite vocabulary."
+description: "Easy to learn, no more hard work."
 keyword: "Automatically, Fast, Free, Intelligent"
 url: "https://outfinities.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
