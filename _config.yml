@@ -1,6 +1,6 @@
 # Site settings
-title: POS
-SEOTitle: POS
+title: WALKer
+SEOTitle: WALKer
 header-img: img/post-bg-desk.jpg
 email: xxxx@xxxxx.com
 description: "Easy to learn, no more hard work."
@@ -116,5 +116,8 @@ friends: [
     },{
         title: "网址导航",
         href: "http://www.bewindoweb.com/dwg.php" 
-    }
+    },{
+        title: "高清壁纸",
+        href: "https://wallhaven.cc/" 
+    }   
 ]
