@@ -11,7 +11,7 @@ tags:
 ---
 
 void EnableDebugPriv() 
-{      
+   {      
 
     HANDLE hToken;      
 
